@@ -1,0 +1,2 @@
+class TeacherRank < ApplicationRecord
+end

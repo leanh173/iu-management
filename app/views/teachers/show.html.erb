@@ -1,0 +1,41 @@
+<%- model_class = Teacher -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => model_class.model_name.human.titleize %></h1>
+</div>
+
+<dl class="dl-horizontal">
+  <dt><strong><%= model_class.human_attribute_name(:name) %>:</strong></dt>
+  <dd><%= @teacher.name %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:short_name) %>:</strong></dt>
+  <dd><%= @teacher.short_name %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:status) %>:</strong></dt>
+  <dd><%= @teacher.status %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:dob) %>:</strong></dt>
+  <dd><%= @teacher.dob %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:address) %>:</strong></dt>
+  <dd><%= @teacher.address %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:certificate) %>:</strong></dt>
+  <dd><%= @teacher.certificate %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:swot) %>:</strong></dt>
+  <dd><%= @teacher.swot %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:phone) %>:</strong></dt>
+  <dd><%= @teacher.phone %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:email) %>:</strong></dt>
+  <dd><%= @teacher.email %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:skype) %>:</strong></dt>
+  <dd><%= @teacher.skype %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:bank_info) %>:</strong></dt>
+  <dd><%= @teacher.bank_info %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:note) %>:</strong></dt>
+  <dd><%= @teacher.note %></dd>
+</dl>
+
+<%= link_to t('.back', :default => t("helpers.links.back")),
+              teachers_path, :class => 'btn btn-default'  %>
+<%= link_to t('.edit', :default => t("helpers.links.edit")),
+              edit_teacher_path(@teacher), :class => 'btn btn-default' %>
+<%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+              teacher_path(@teacher),
+              :method => 'delete',
+              :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+              :class => 'btn btn-danger' %>

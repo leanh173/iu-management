@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  study_course: one
+  study_at_day: MyString
+  time_study: 1
+
+two:
+  study_course: two
+  study_at_day: MyString
+  time_study: 1
