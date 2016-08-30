@@ -1,0 +1,18 @@
+<%- model_class = StudyCourse -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => model_class.model_name.human.titleize %></h1>
+</div>
+
+<dl class="dl-horizontal">
+  <dt><strong><%= model_class.human_attribute_name(:teacher_id) %>:</strong></dt>
+  <dd><%= @study_course.teacher_id %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:student_id) %>:</strong></dt>
+  <dd><%= @study_course.student_id %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:course_id) %>:</strong></dt>
+  <dd><%= @study_course.course_id %></dd>
+</dl>
+
+<%= link_to t('.back', :default => t("helpers.links.back")),
+              study_courses_path, :class => 'btn btn-default'  %>
+<%= link_to t('.edit', :default => t("helpers.links.edit")),
+              edit_study_course_path(@study_course), :class => 'btn btn-default' %>

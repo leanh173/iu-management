@@ -16,3 +16,6 @@
 //= require turbolinks
 //= require_tree .
 //= require bootstrap-datepicker
+$(document).ready(function(){
+  $('.datepicker').datepicker({"format": "yyyy-mm-dd", "weekStart": 1, "autoclose": true});
+});

@@ -18,8 +18,8 @@
       <%= nav_bar fixed: :top, brand: "Home" do %>
         <%= menu_group do %>
           <%= menu_item "Teachers", teachers_path %>
-          <%= menu_item "Students", "#" %>
-          <%= menu_item "Add Course", "#" %>
+          <%= menu_item "Students", students_path %>
+          <%= menu_item "Courses", courses_path %>
         <% end %>
           <%= link_to "Account", edit_user_path(current_user), class: "btn btn-primary logout-btn" %>
           <%= link_to "Logout", destroy_user_session_path, method: :delete, class: "btn btn-danger logout-btn" %>

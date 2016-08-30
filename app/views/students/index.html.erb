@@ -1,4 +1,4 @@
-<%- model_class = Teacher -%>
+<%- model_class = Student -%>
 <div class="page-header">
   <h1><%=t '.title', :default => model_class.model_name.human.pluralize.titleize %></h1>
 </div>
@@ -8,11 +8,10 @@
       <th><%= model_class.human_attribute_name(:id) %></th>
       <th><%= model_class.human_attribute_name(:name) %></th>
       <th><%= model_class.human_attribute_name(:short_name) %></th>
+      <th><%= model_class.human_attribute_name(:start_date) %></th>
       <th><%= model_class.human_attribute_name(:status) %></th>
       <th><%= model_class.human_attribute_name(:dob) %></th>
       <th><%= model_class.human_attribute_name(:address) %></th>
-      <th><%= model_class.human_attribute_name(:certificate) %></th>
-      <th><%= model_class.human_attribute_name(:swot) %></th>
       <th><%= model_class.human_attribute_name(:phone) %></th>
       <th><%= model_class.human_attribute_name(:email) %></th>
       <th><%= model_class.human_attribute_name(:skype) %></th>
@@ -23,25 +22,24 @@
     </tr>
   </thead>
   <tbody>
-    <% @teachers.each do |teacher| %>
+    <% @students.each do |student| %>
       <tr>
-        <td><%= link_to teacher.id, teacher_path(teacher) %></td>
-        <td><%= teacher.name %></td>
-        <td><%= teacher.short_name %></td>
-        <td><%= teacher.status %></td>
-        <td><%= teacher.dob %></td>
-        <td><%= teacher.address %></td>
-        <td><%= teacher.certificate %></td>
-        <td><%= teacher.swot %></td>
-        <td><%= teacher.phone %></td>
-        <td><%= teacher.email %></td>
-        <td><%= teacher.skype %></td>
-        <td><%= teacher.bank_info %></td>
-        <td><%= teacher.note %></td>
-        <td><%=full_time_as_format teacher.created_at %></td>
+        <td><%= link_to student.id, student_path(student) %></td>
+        <td><%= student.name %></td>
+        <td><%= student.short_name %></td>
+        <td><%= student.start_date %></td>
+        <td><%= student.status %></td>
+        <td><%= student.dob %></td>
+        <td><%= student.address %></td>
+        <td><%= student.phone %></td>
+        <td><%= student.email %></td>
+        <td><%= student.skype %></td>
+        <td><%= student.bank_info %></td>
+        <td><%= student.note %></td>
+        <td><%=full_time_as_format student.created_at %></td>
         <td>
           <%= link_to t('.edit', :default => t("helpers.links.edit")),
-                      edit_teacher_path(teacher), :class => 'btn btn-default btn-xs' %>
+                      edit_student_path(student), :class => 'btn btn-default btn-xs' %>
         </td>
       </tr>
     <% end %>
@@ -49,5 +47,5 @@
 </table>
 
 <%= link_to t('.new', :default => t("helpers.links.new")),
-            new_teacher_path,
+            new_student_path,
             :class => 'btn btn-primary' %>

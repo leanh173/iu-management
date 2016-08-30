@@ -4,4 +4,13 @@
 }
 .logout-btn {
   margin-top: 8px;
+  margin-left: 5px;
+}
+.amount-input {
+  padding-top: 6px;
+}
+
+body {
+  padding-left: 2%;
+  padding-right: 2%;
 }

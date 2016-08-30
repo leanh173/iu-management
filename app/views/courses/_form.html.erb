@@ -1,0 +1,80 @@
+<%= form_for @course, :html => { :class => "form-horizontal course" } do |f| %>
+
+  <% if @course.errors.any? %>
+    <div id="error_expl" class="panel panel-danger">
+      <div class="panel-heading">
+        <h3 class="panel-title"><%= pluralize(@course.errors.count, "error") %> prohibited this course from being saved:</h3>
+      </div>
+      <div class="panel-body">
+        <ul>
+        <% @course.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+        </ul>
+      </div>
+    </div>
+  <% end %>
+
+  <div class="form-group">
+    <%= f.label :name, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-2">
+      <%= f.text_field :name, :class => 'form-control' %>
+    </div>
+    <%=f.error_span(:name) %>
+  </div>
+  <div class="form-group">
+    <%= f.label :code, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-2">
+      <%= f.text_field :code, :class => 'form-control' %>
+    </div>
+    <%=f.error_span(:code) %>
+  </div>
+  <div class="form-group">
+    <%= f.label :level, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-2">
+      <%= f.text_field :level, :class => 'form-control' %>
+    </div>
+    <%=f.error_span(:level) %>
+  </div>
+  <div class="form-group">
+    <%= f.label :time, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-2">
+      <%= f.number_field :time, :class => 'form-control' %>
+    </div>
+    <p class="amount-input">minutes</p>
+    <%=f.error_span(:time) %>
+  </div>
+  <div class="form-group">
+    <%= f.label :price_peso, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-2">
+      <%= f.number_field :price_peso, :class => 'form-control' %>
+    </div>
+    <p class="amount-input">Peso</p>
+    <%=f.error_span(:price_peso) %>
+  </div>
+  <div class="form-group">
+    <%= f.label :price_vnd, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-2">
+      <%= f.number_field :price_vnd, :class => 'form-control' %>
+    </div>
+    <p class="amount-input">VND</p>
+    <%=f.error_span(:price_vnd) %>
+  </div>
+  <div class="form-group">
+    <%= f.label :rate_price, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-2">
+      <%= f.number_field :rate_price, :class => 'form-control' %>
+    </div>
+    <p class="amount-input">Peso</p>
+    <%=f.error_span(:rate_price) %>
+  </div>
+
+  <div class="form-group">
+    <div class="col-lg-offset-2 col-lg-10">
+      <%= f.submit nil, :class => 'btn btn-primary' %>
+      <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                courses_path, :class => 'btn btn-default' %>
+    </div>
+  </div>
+
+<% end %>

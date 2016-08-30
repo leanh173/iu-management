@@ -1,0 +1,69 @@
+<%- model_class = Student -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => model_class.model_name.human.titleize %></h1>
+</div>
+
+<dl class="dl-horizontal">
+  <dt><strong><%= model_class.human_attribute_name(:name) %>:</strong></dt>
+  <dd><%= @student.name %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:short_name) %>:</strong></dt>
+  <dd><%= @student.short_name %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:start_date) %>:</strong></dt>
+  <dd><%= @student.start_date %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:status) %>:</strong></dt>
+  <dd><%= @student.status %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:dob) %>:</strong></dt>
+  <dd><%= @student.dob %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:address) %>:</strong></dt>
+  <dd><%= @student.address %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:phone) %>:</strong></dt>
+  <dd><%= @student.phone %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:email) %>:</strong></dt>
+  <dd><%= @student.email %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:skype) %>:</strong></dt>
+  <dd><%= @student.skype %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:bank_info) %>:</strong></dt>
+  <dd><%= @student.bank_info %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:note) %>:</strong></dt>
+  <dd><%= @student.note %></dd>
+</dl>
+
+<%= link_to t('.back', :default => t("helpers.links.back")),
+              students_path, :class => 'btn btn-default'  %>
+<%= link_to t('.edit', :default => t("helpers.links.edit")),
+              edit_student_path(@student), :class => 'btn btn-default' %>
+</br></br>
+<b>History Cousrse</b>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th><%= StudyCourse.human_attribute_name(:id) %></th>
+      <th>Start at</th>
+      <th>Teacher</th>
+      <th>Course</th>
+      <th>Created at</th>
+      <th><%=t '.actions', :default => t("helpers.actions") %></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @student.study_courses.each do |study_course| %>
+      <tr>
+        <td><%= link_to study_course.id, study_course_path(study_course) %></td>
+        <td><%= full_time_as_format study_course.start_at %></td>
+        <td><%= study_course.teacher.name %></td>
+        <td><%= study_course.course.name + " - " + study_course.course.level + "(" +
+         study_course.course.code + ")" %></td>
+        <td><%=full_time_as_format study_course.created_at %></td>
+        <td>
+          <%= link_to t('.edit', :default => t("helpers.links.edit")),
+                      edit_study_course_path(study_course), :class => 'btn btn-default btn-xs' %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= link_to "Add course for student",
+            new_study_course_path(student_id: @student.id, student_name: @student.name),
+            :class => 'btn btn-primary' %>
+

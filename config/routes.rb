@@ -5,4 +5,7 @@ Rails.application.routes.draw do
   root "users#index"
   resources :users, only: [:edit, :show, :update, :index]
   resources :teachers
+  resources :courses
+  resources :students
+  resources :study_courses
 end
