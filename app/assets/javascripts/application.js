@@ -16,6 +16,7 @@
 //= require turbolinks
 //= require_tree .
 //= require bootstrap-datepicker
+//= require jquery_nested_form
 $(document).ready(function(){
   $('.datepicker').datepicker({"format": "yyyy-mm-dd", "weekStart": 1, "autoclose": true});
 });

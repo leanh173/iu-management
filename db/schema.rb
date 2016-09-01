@@ -55,7 +55,7 @@ ActiveRecord::Schema.define(version: 20160830063054) do
   create_table "study_date_per_weeks", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer  "study_course_id"
     t.string   "study_at_day"
-    t.integer  "time_study"
+    t.string   "time_study"
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
     t.index ["study_course_id"], name: "index_study_date_per_weeks_on_study_course_id", using: :btree

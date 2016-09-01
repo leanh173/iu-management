@@ -1,4 +1,4 @@
-<%= form_for @study_course, :html => { :class => "form-horizontal study_course" } do |f| %>
+<%= nested_form_for @study_course, :html => { :class => "form-horizontal study_course" } do |f| %>
 
   <% if @study_course.errors.any? %>
     <div id="error_expl" class="panel panel-danger">
@@ -48,6 +48,26 @@
       <%= f.text_field :start_at , :class => 'form-control datepicker' %>
     </div>
     <%=f.error_span(:start_at) %>
+  </div>
+
+  <div class="form-group">
+    <label class="col-lg-2 control-label"><%= t ".list_manage_app" %></label>
+    <div class="center col-lg-10">
+      <%= f.fields_for :study_date_per_weeks do |ff| %>
+        <div class="form-group">
+          <%= f.label :study_at_day , :class => 'control-label col-lg-2' %>
+          <div class="col-lg-2">
+            <%= ff.select :study_at_day, day_in_week, {}, {class: "form-control"} %>
+          </div>
+          <%= f.label :time_study , :class => 'control-label col-lg-2' %>
+          <div class="col-lg-2">
+            <%= ff.text_field :time_study, placeholder: "18:30" , class: "form-control col-lg-2" %>
+          </div>
+          <div class="col-md-12" style="height:10px;"></div>
+       </div>
+      <% end %>
+      <p><%= f.link_to_add "add study schedule", :study_date_per_weeks, class: "btn btn-success" %></p>
+    </div>
   </div>
 
   <div class="form-group">

@@ -41,6 +41,7 @@
       <th>Start at</th>
       <th>Teacher</th>
       <th>Course</th>
+      <th>Number study days</th>
       <th>Created at</th>
       <th><%=t '.actions', :default => t("helpers.actions") %></th>
     </tr>
@@ -49,10 +50,11 @@
     <% @student.study_courses.each do |study_course| %>
       <tr>
         <td><%= link_to study_course.id, study_course_path(study_course) %></td>
-        <td><%= full_time_as_format study_course.start_at %></td>
+        <td><%= date_as_format study_course.start_at %></td>
         <td><%= study_course.teacher.name %></td>
         <td><%= study_course.course.name + " - " + study_course.course.level + "(" +
          study_course.course.code + ")" %></td>
+        <td><%= study_course.study_dates.count %></td>
         <td><%=full_time_as_format study_course.created_at %></td>
         <td>
           <%= link_to t('.edit', :default => t("helpers.links.edit")),
